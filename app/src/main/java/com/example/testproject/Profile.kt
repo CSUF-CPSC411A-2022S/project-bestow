@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.navigation.findNavController
 import com.example.testproject.data.TestProfile
@@ -24,6 +25,7 @@ class Profile : Fragment() {
         // Modify EditText views using data from TestProfile
         binding.takername.setText(TestProfile.takername)
         binding.neednumber.setText(TestProfile.need)
+
 
 
         /*
