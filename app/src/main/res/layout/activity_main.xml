@@ -11,10 +11,11 @@
          We use match_parent for the layouts so the fragment fills the entire screen.
     -->
     <fragment
-        android:id="@+id/main_fragment"
+        android:id="@+id/nav_host"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.testproject.Profile"
-        />
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/navigation"
+        app:defaultNavHost="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
