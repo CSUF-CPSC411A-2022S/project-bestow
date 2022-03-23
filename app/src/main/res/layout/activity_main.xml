@@ -38,7 +38,7 @@
         app:itemBackground="@color/material_dynamic_primary0"
         app:itemIconTint="#8F3838"
         app:itemTextColor="#A58585"
-        app:menu="@menu/nav_menu" />
+        app:menu="@menu/navigation_bar" />
 
 
 
