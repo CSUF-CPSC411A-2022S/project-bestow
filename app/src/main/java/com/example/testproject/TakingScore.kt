@@ -5,12 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.testproject.databinding.TakingscoreBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TakingScore.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class TakingScore : Fragment() {
 
     override fun onCreateView(
@@ -20,5 +17,7 @@ class TakingScore : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.takingscore, container, false)
     }
+
+
 }
 

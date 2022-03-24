@@ -26,11 +26,10 @@ class Profile : Fragment() {
         binding.takername.setText(TestProfile.takername)
         binding.neednumber.setText(TestProfile.need)
 
-        binding.modify.setOnClickListener { view: View ->
+        binding.root.setOnClickListener { view: View ->
             view.findNavController()
                 .navigate(R.id.action_profile_to_takingScore)
         }
-
 
         /*
         binding.modify.setOnClickListener { view: View ->

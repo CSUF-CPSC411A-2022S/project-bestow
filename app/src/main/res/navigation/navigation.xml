@@ -19,4 +19,11 @@
         android:name="com.example.testproject.TakingScore"
         android:label="takingscore"
         tools:layout="@layout/takingscore" />
+    <argument
+        android:name="takername"
+        app:argType="string" />
+    <argument
+        android:name="need"
+        app:argType="string" />
+
 </navigation>
