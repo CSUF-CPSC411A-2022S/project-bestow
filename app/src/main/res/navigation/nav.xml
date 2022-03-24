@@ -15,4 +15,13 @@
         android:name="com.example.testproject.screen_givingscore"
         android:label="fragment_screen_givingscore"
         tools:layout="@layout/fragment_screen_givingscore" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.testproject.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profile_to_screen_givingscore"
+            app:destination="@id/screen_givingscore" />
+    </fragment>
 </navigation>
