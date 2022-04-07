@@ -3,7 +3,7 @@ package com.example.testproject
 class GivingScore(var score: Int)
 {
 
-    fun current(item: String, item_rating: Int)
+    fun current()
     {
         var rating_score = 0
         when(score){
