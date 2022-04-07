@@ -1,21 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Create a fragment element that displays the layout associated with a fragment. In this case
-         we display the Profile fragment by setting the class name to the android:name attribute.
-         We use match_parent for the layouts so the fragment fills the entire screen.
-    -->
-    <fragment
-        android:id="@+id/nav_host"
+    <data>
+        <!-- IntersectionViewModel variable used by the view to manage data -->
+        <variable
+            name="takerdataViewModel"
+            type="com.example.testproject.TakerDataViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        app:navGraph="@navigation/navigation"
-        app:defaultNavHost="true"/>
+        tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- @= indicates that value in the edit text is copied to the ViewModel's name -->
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:text="@={TakerDataViewModel.takername}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- @= indicates that value in the edit text is copied to the ViewModel's item -->
+        <EditText
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:ems="10"
+            android:hint="Item"
+            android:inputType="textPersonName"
+            android:text="@={TakerDataViewModel.item}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <!-- @= indicates that value in the edit text is copied to the ViewModel's item -->
+        <EditText
+            android:id="@+id/need"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:ems="10"
+            android:hint="Need"
+            android:inputType="textPersonName"
+            android:text="@={TakerDataViewModel.need}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item" />
+
+        <!-- onClick accepts a lambda function indicated by () -> The body
+             of the lambda function calls the insert function
+         -->
+
+        <!-- The value of the TextView is retrieved from the intersectionString
+             property. Recall that this is a LiveData String retrieved from the
+             database.
+         -->
+
+        <Button
+            android:id="@+id/add_taker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="@{() -> TakerDataViewModel.insert()}"
+            android:text="Add Taker Data"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/need" />
+
+        <TextView
+            android:id="@+id/takerList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_taker"
+            android:text="@{TakerDataViewModel.takerString}"/>
+
+        <!-- onClick accepts a lambda function indicated by () -> The body
+             of the lambda function calls the clear function
+         -->
+        <Button
+            android:id="@+id/clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:onClick="@{()-> TakerDataViewModel.clear()}"
+            android:text="Clear"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/need" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

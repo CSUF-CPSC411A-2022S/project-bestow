@@ -2,42 +2,40 @@ package com.example.testproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import com.example.testproject.data.TakerDatabase
 import com.example.testproject.databinding.ActivityMainBinding
 
 /**
- * An application that modifies a user's profile.
+ * Main interface of the application
  */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        /**
-         * Use a binding object to simplify access to the visual design elements.
-         */
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        /**
-         * Remove comments only when working on 6.1 Model 3.
-         * navController refers to our navigation fragment. The setupActionBarWithnavController
-         * method connects our navController to the ActionBar that maintains the "back stack" which
-         * is the succession of fragments that were opened. Pressing the Up button will display the
-         * fragment that opened the current fragment, thereby back tracking its way to the first
-         * fragment.
-         */
-        val navController = this.findNavController(R.id.nav_host)
-        NavigationUI.setupActionBarWithNavController(this,navController)
+        // Create data binding
+        val binding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-    }
-    /**
-     * Remove comments only when working on 6.1 Model 3.
-     * The method overrides the default implementation of the Up button so that it uses our
-     * navController.
-     */
-    override fun onSupportNavigateUp(): Boolean {
-        //Replace nav_host with the name of your nav host fragment in activity_main.xml
-        val navController = this.findNavController(R.id.nav_host)
-        return navController.navigateUp()
+        // Get reference to this application
+        val application = requireNotNull(this).application
+
+        // Retrieve Intersection data access object.
+        val dataSource = TakerDatabase.getInstance(application).takerDao
+
+        // Create a factory that generates IntersectionViewModels connected to the database.
+        val viewModelFactory = TakerDataViewModelFactory(dataSource, application)
+
+        // Generate an IntersectionViewModel using the factory.
+        val takerViewModel =
+            ViewModelProvider(
+                this, viewModelFactory).get(TakerDataViewModel::class.java)
+
+        // Connect the IntersectionViewModel with the variable in the layout
+        binding.takerViewModel = takerViewModel
+
+        // Assign the lifecycle owner to the activity so it manages the data accordingly.
+        binding.lifecycleOwner = this
     }
 }
