@@ -9,6 +9,7 @@ import com.example.testproject.fragments.PostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
+
 class MainActivity : AppCompatActivity() {
 
 
