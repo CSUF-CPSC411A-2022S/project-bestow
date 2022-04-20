@@ -2,30 +2,47 @@ package com.example.testproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
-import com.example.testproject.databinding.ActivityMainBinding
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.testproject.fragments.AccountFragment
+import com.example.testproject.fragments.HomeFragment
+import com.example.testproject.fragments.PostFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainActivity : AppCompatActivity() {
+
+
+
+    private val homeFragment = HomeFragment()
+    private val accountFragment = AccountFragment()
+    private val postFragment = PostFragment()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        val navController = this.findNavController(R.id.nav)
-        NavigationUI.setupActionBarWithNavController(this,navController)
+        replaceFragment(homeFragment)
 
 
 
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId) {
+                R.id.home-> replaceFragment(homeFragment)
+                R.id.post-> replaceFragment(postFragment)
+                R.id.account-> replaceFragment(accountFragment)
             }
+            true
+        }
 
+    }
 
-    override fun onSupportNavigateUp(): Boolean {
-        //        Replace nav_host with the name of your nav host fragment in activity_main.xml
-        val navController = this.findNavController(R.id.nav)
-        return navController.navigateUp()
+    private fun replaceFragment(fragment: Fragment) {
+        if(fragment != null) {
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container, fragment)
+            transaction.commit()
+        }
     }
 }
