@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <!-- IntersectionViewModel variable used by the view to manage data -->
+        <!-- TakerDataViewModel variable used by the view to manage data -->
         <variable
             name="takerdataViewModel"
             type="com.example.testproject.TakerDataViewModel" />
@@ -26,7 +26,7 @@
             android:ems="10"
             android:hint="Name"
             android:inputType="textPersonName"
-            android:text="@={TakerDataViewModel.takername}"
+            android:text="@={takerdataViewModel.takername}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,7 +42,7 @@
             android:ems="10"
             android:hint="Item"
             android:inputType="textPersonName"
-            android:text="@={TakerDataViewModel.item}"
+            android:text="@={takerdataViewModel.item}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -58,7 +58,7 @@
             android:ems="10"
             android:hint="Need"
             android:inputType="textPersonName"
-            android:text="@={TakerDataViewModel.need}"
+            android:text="@={takerdataViewModel.need}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/item" />
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
-            android:onClick="@{() -> TakerDataViewModel.insert()}"
+            android:onClick="@{() -> takerdataViewModel.insert()}"
             android:text="Add Taker Data"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/need" />
@@ -94,7 +94,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_taker"
-            android:text="@{TakerDataViewModel.takerString}"/>
+            android:text="@{takerdataViewModel.takerString}"/>
 
         <!-- onClick accepts a lambda function indicated by () -> The body
              of the lambda function calls the clear function
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
-            android:onClick="@{()-> TakerDataViewModel.clear()}"
+            android:onClick="@{()-> takerdataViewModel.clear()}"
             android:text="Clear"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/need" />

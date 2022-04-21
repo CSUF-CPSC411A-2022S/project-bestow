@@ -20,9 +20,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    // Enable view binding
+    // Enable data binding
     buildFeatures {
-        viewBinding = true
+        dataBinding = true
     }
 
     buildTypes {

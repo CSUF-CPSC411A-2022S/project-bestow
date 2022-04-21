@@ -21,19 +21,19 @@ class MainActivity : AppCompatActivity() {
         // Get reference to this application
         val application = requireNotNull(this).application
 
-        // Retrieve Intersection data access object.
+        // Retrieve Taker data access object.
         val dataSource = TakerDatabase.getInstance(application).takerDao
 
-        // Create a factory that generates IntersectionViewModels connected to the database.
+        // Create a factory that generates TakerViewModels connected to the database.
         val viewModelFactory = TakerDataViewModelFactory(dataSource, application)
 
-        // Generate an IntersectionViewModel using the factory.
+        // Generate an TakerViewModel using the factory.
         val takerViewModel =
             ViewModelProvider(
                 this, viewModelFactory).get(TakerDataViewModel::class.java)
 
-        // Connect the IntersectionViewModel with the variable in the layout
-        binding.takerViewModel = takerViewModel
+        // Connect the TakerViewModel with the variable in the layout
+        binding.takerdataViewModel = takerViewModel
 
         // Assign the lifecycle owner to the activity so it manages the data accordingly.
         binding.lifecycleOwner = this
