@@ -32,5 +32,5 @@ data class TakerData(
 
     // Non-primary key column. Data type is specified in the property.
     @ColumnInfo()
-    var need: String = ""
+    var description: String = ""
 )

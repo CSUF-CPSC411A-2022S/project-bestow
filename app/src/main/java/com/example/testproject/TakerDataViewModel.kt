@@ -17,7 +17,7 @@ class TakerDataViewModel(
 
     var takername = MutableLiveData("")
     var item = MutableLiveData("")
-    var need = MutableLiveData("")
+    var description = MutableLiveData("")
 
     // Retrieves all Intersection objects from the database
     // Represented as a LiveData<List<Intersection>>
@@ -35,7 +35,7 @@ class TakerDataViewModel(
         for (taker in takers) {
             // Create a string using the Intersection name and location.
             // The intersection string is appended to a longer string with all intersections.
-            result += "${taker.takername} @ ${taker.item} @ ${taker.need}\n"
+            result += "${taker.takername} @ ${taker.item} @ ${taker.description}\n"
         }
         // Returns the aggregated String that is wrapped by the map function in a LiveData object.
         result
@@ -52,7 +52,7 @@ class TakerDataViewModel(
             var taker = TakerData()
             taker.takername = takername.value.toString()
             taker.item = item.value.toString()
-            taker.need = need.value.toString()
+            taker.description = description.value.toString()
 
             // Insert data to the database using the insert coroutine.
             database.insert(taker)

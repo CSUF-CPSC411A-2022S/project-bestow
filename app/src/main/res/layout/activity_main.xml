@@ -49,16 +49,16 @@
 
         <!-- @= indicates that value in the edit text is copied to the ViewModel's item -->
         <EditText
-            android:id="@+id/need"
+            android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:ems="10"
-            android:hint="Need"
+            android:hint="Description"
             android:inputType="textPersonName"
-            android:text="@={takerdataViewModel.need}"
+            android:text="@={takerdataViewModel.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/item" />
@@ -81,7 +81,7 @@
             android:onClick="@{() -> takerdataViewModel.insert()}"
             android:text="Add Taker Data"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/need" />
+            app:layout_constraintTop_toBottomOf="@+id/description" />
 
         <TextView
             android:id="@+id/takerList"
@@ -108,7 +108,7 @@
             android:onClick="@{()-> takerdataViewModel.clear()}"
             android:text="Clear"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/need" />
+            app:layout_constraintTop_toBottomOf="@+id/description" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
