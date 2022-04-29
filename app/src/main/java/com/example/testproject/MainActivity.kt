@@ -3,8 +3,8 @@ package com.example.testproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
-import com.example.testproject.data.TakerDatabase
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.testproject.databinding.ActivityMainBinding
 
 /**
@@ -14,28 +14,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Create data binding
+        // Create data binding and assign layout for the activity.
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        // Get reference to this application
-        val application = requireNotNull(this).application
+        // Setup navigation controller and action bar.
+        val navController = this.findNavController(R.id.nav_host)
+        NavigationUI.setupActionBarWithNavController(this, navController)
+    }
 
-        // Retrieve Taker data access object.
-        val dataSource = TakerDatabase.getInstance(application).takerDao
-
-        // Create a factory that generates TakerViewModels connected to the database.
-        val viewModelFactory = TakerDataViewModelFactory(dataSource, application)
-
-        // Generate an TakerViewModel using the factory.
-        val takerViewModel =
-            ViewModelProvider(
-                this, viewModelFactory).get(TakerDataViewModel::class.java)
-
-        // Connect the TakerViewModel with the variable in the layout
-        binding.takerdataViewModel = takerViewModel
-
-        // Assign the lifecycle owner to the activity so it manages the data accordingly.
-        binding.lifecycleOwner = this
+    /**
+     * Override the default implementation of the Up button so that it uses our
+     * navController.
+     */
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController(R.id.nav_host)
+        return navController.navigateUp()
     }
 }

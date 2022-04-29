@@ -1,4 +1,4 @@
-package com.example.testproject
+package com.example.testproject.takerlist
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
