@@ -29,18 +29,18 @@ class TakerListFragment : Fragment() {
         // Get reference to the application
         val application = requireNotNull(this.activity).application
 
-        // Retrieve Intersection data access object.
+        // Retrieve Taker data access object.
         val dataSource = TakerDatabase.getInstance(application).takerDao
 
-        // Create a factory that generates IntersectionViewModels connected to the database.
+        // Create a factory that generates TakerDataViewModels connected to the database.
         val viewModelFactory = TakerDataViewModelFactory(dataSource, application)
 
-        // Generate an IntersectionViewModel using the factory.
-        val takerdataViewModel =
+        // Generate an TakerDataViewModel using the factory.
+        val takerdataViewModel=
             ViewModelProvider(
                 this, viewModelFactory).get(TakerDataViewModel::class.java)
 
-        // Connect the IntersectionViewModel with the variable in the layout
+        // Connect the TakerDataViewModel with the variable in the layout
         binding.takerdataViewModel = takerdataViewModel
         // Assign the lifecycle owner to the activity so it manages the data accordingly.
         binding.lifecycleOwner = this
@@ -48,7 +48,7 @@ class TakerListFragment : Fragment() {
         // Provide a lambda function that is called when the RecyclerView item is selected.
         var takerAdapter = TakerListAdapter(TakerListener {
                 takerId ->
-            // Navigate to the intersection view and provide the id of the intersection referenced
+            // Navigate to the taker view and provide the id of the taker referenced
             // by the select RecyclerView item.
             this.findNavController().navigate(
                TakerListFragmentDirections

@@ -7,17 +7,17 @@
     <fragment
         android:id="@+id/takerListFragment"
         android:name="com.example.testproject.takerlist.TakerListFragment"
-        android:label="Manage Intersections">
+        android:label="Manage Takers">
         <action
             android:id="@+id/action_intersectionListFragment_to_intersectionItemFragment"
             app:destination="@id/takerItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/takerItemFragment"
-        android:name="edu.fullerton.ecs.mdap.intersectiondb.intersectionitem.IntersectionItemFragment"
-        android:label="Intersection Information">
+        android:name="com.example.testproject.takerlist.TakerItemFragment"
+        android:label="Taker Information">
         <argument
-            android:name="intersectionId"
+            android:name="takerId"
             app:argType="long" />
     </fragment>
 </navigation>

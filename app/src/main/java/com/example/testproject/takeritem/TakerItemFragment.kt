@@ -14,6 +14,7 @@ import com.example.testproject.data.TakerDatabase
 import com.example.testproject.databinding.TakerItemFragmentBinding
 import com.example.testproject.takerlist.TakerDataViewModel
 import com.example.testproject.takerlist.TakerDataViewModelFactory
+import com.example.testproject.takerlist.TakerItemFragmentArgs
 
 /**
  * Fragment that displays a single intersection.
@@ -39,18 +40,18 @@ class TakerItemFragment : Fragment() {
         val dataSource = TakerDatabase.getInstance(application).takerDao
 
         // Create a factory that generates an IntersectionViewModel connected to the database. The
-        // intersectionId passed from the RecyclerView is used to display the corresponding
+        // takerId passed from the RecyclerView is used to display the corresponding
         // information.
         val viewModelFactory =
-            TakerItemViewModelFactory(args.intersectionId, dataSource, application)
+            TakerItemViewModelFactory(args.takerId, dataSource, application)
 
-        // Generate an IntersectionViewModel using the factory.
+        // Generate an TakerItemViewModel using the factory.
         val takerItemViewModel =
             ViewModelProvider(
                 this, viewModelFactory
             ).get(TakerItemViewModel::class.java)
 
-        // Connect the IntersectionViewModel with the variable in the layout
+        // Connect the TakerItemViewModel with the variable in the layout
         binding.takerItemViewModel = takerItemViewModel
 
         // Assign the lifecycle owner to the activity so it manages the data accordingly.

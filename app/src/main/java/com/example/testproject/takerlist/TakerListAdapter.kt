@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testproject.data.TakerData
-import com.example.testproject.takerlist.databinding.TakerItemBinding
+import com.example.testproject.databinding.TakerItemBinding
 
 /**
  * A RecyclerView adapter that uses the DiffCallback for better performance.
  */
 class TakerListAdapter() : ListAdapter<TakerData,
-        TakerListAdapter.ItemViewHolder>(IntersectionDiffCallback()) {
+        TakerListAdapter.ItemViewHolder>(TakerDiffCallback()) {
 
     /**
      * Inner class used to store data about each element in the RecyclerView. We provide a binding
@@ -48,14 +48,14 @@ class TakerListAdapter() : ListAdapter<TakerData,
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         // Assign the corresponding element from the data and the click listener. Take note getItem
         // is a function provided by ListAdapter.
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), clickListener)
     }
 }
 
 /**
  * Manages a RecyclerView list using the Eugene W. Myers's difference algorithm to reduce processing.
  */
-class IntersectionDiffCallback : DiffUtil.ItemCallback<TakerData>() {
+class TakerDiffCallback : DiffUtil.ItemCallback<TakerData>() {
     /**
      * We use takerId because it is a unique ID referring to a single element.
      */
@@ -70,4 +70,12 @@ class IntersectionDiffCallback : DiffUtil.ItemCallback<TakerData>() {
         return oldItem.takername == newItem.takername && oldItem.item == newItem.item
                 && oldItem.description == newItem.description
     }
+}
+
+/**
+ * Listener that accepts a lambda function clickListener. It will be called when an element of the
+ * RecyclerView is clicked/tapped.
+ */
+class TakerListener(val clickListener: (intersectionId: Long) -> Unit) {
+    fun onClick(intersection: TakerData) = clickListener(intersection.takerId)
 }
