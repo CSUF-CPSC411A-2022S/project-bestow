@@ -9,12 +9,12 @@
         android:name="com.example.testproject.takerlist.TakerListFragment"
         android:label="Manage Takers">
         <action
-            android:id="@+id/action_intersectionListFragment_to_intersectionItemFragment"
+            android:id="@+id/action_takerListFragment_to_takerItemFragment"
             app:destination="@id/takerItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/takerItemFragment"
-        android:name="com.example.testproject.takerlist.TakerItemFragment"
+        android:name="com.example.testproject.takeritem.TakerItemFragment"
         android:label="Taker Information">
         <argument
             android:name="takerId"

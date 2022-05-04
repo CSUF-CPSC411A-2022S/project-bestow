@@ -14,7 +14,6 @@ import com.example.testproject.data.TakerDatabase
 import com.example.testproject.databinding.TakerItemFragmentBinding
 import com.example.testproject.takerlist.TakerDataViewModel
 import com.example.testproject.takerlist.TakerDataViewModelFactory
-import com.example.testproject.takerlist.TakerItemFragmentArgs
 
 /**
  * Fragment that displays a single intersection.

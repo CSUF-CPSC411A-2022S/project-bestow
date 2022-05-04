@@ -11,7 +11,7 @@ import com.example.testproject.databinding.TakerItemBinding
 /**
  * A RecyclerView adapter that uses the DiffCallback for better performance.
  */
-class TakerListAdapter() : ListAdapter<TakerData,
+class TakerListAdapter(val clickListener: TakerListener) : ListAdapter<TakerData,
         TakerListAdapter.ItemViewHolder>(TakerDiffCallback()) {
 
     /**

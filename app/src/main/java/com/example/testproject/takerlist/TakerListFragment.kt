@@ -48,10 +48,10 @@ class TakerListFragment : Fragment() {
         // Provide a lambda function that is called when the RecyclerView item is selected.
         var takerAdapter = TakerListAdapter(TakerListener {
                 takerId ->
-            // Navigate to the taker view and provide the id of the taker referenced
+            // Navigate to the intersection view and provide the id of the intersection referenced
             // by the select RecyclerView item.
             this.findNavController().navigate(
-               TakerListFragmentDirections
+                TakerListFragmentDirections
                     .actionTakerListFragmentToTakerItemFragment(takerId)
             )
         })
