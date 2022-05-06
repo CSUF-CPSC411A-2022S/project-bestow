@@ -16,7 +16,7 @@ import com.example.testproject.takerlist.TakerDataViewModel
 import com.example.testproject.takerlist.TakerDataViewModelFactory
 
 /**
- * Fragment that displays a single intersection.
+ * Fragment that displays a single taker.
  */
 class TakerItemFragment : Fragment() {
     override fun onCreateView(

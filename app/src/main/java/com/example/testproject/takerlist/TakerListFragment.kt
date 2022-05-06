@@ -14,7 +14,7 @@ import com.example.testproject.data.TakerDatabase
 import com.example.testproject.databinding.TakerListFragmentBinding
 
 /**
- * Fragment that displays the input text fields and intersection list
+ * Fragment that displays the input text fields and taker item list
  */
 class TakerListFragment : Fragment() {
 

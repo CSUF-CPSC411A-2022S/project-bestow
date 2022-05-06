@@ -8,8 +8,8 @@ import kotlinx.coroutines.launch
 
 /**
  * TakerViewModel used for data binding. Provides a connection to the database
- * for storing and retrieving corresponding values. It retrieves the corresponding takerdata
- * with the provided intersection ID.
+ * for storing and retrieving corresponding values. It retrieves the corresponding taker data
+ * with the provided taker ID.
  */
 class TakerItemViewModel(
     val takerId: Long,

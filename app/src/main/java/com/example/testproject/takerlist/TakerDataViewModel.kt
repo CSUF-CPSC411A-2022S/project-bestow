@@ -19,8 +19,8 @@ class TakerDataViewModel(
     var item = MutableLiveData("")
     var description = MutableLiveData("")
 
-    // Retrieves all Intersection objects from the database
-    // Represented as a LiveData<List<Intersection>>
+    // Retrieves all Taker objects from the database
+    // Represented as a LiveData<List<TakerData>>
     val takerList = database.getAllIntersections()
 
     /**
@@ -31,9 +31,9 @@ class TakerDataViewModel(
     var takerString = Transformations.map(takerList) {
             takers -> // intersections refer to the underlying data List<Intersection>
         var result = ""
-        // Retrieve each Intersection object from the list
+        // Retrieve each Taker object from the list
         for (taker in takers) {
-            // Create a string using the Intersection name and location.
+            // Create a string using the Taker name and location.
             // The intersection string is appended to a longer string with all intersections.
             result += "${taker.takername} @ ${taker.item} @ ${taker.description}\n"
         }
@@ -61,7 +61,7 @@ class TakerDataViewModel(
     }
 
     /**
-     * Deletes all Intersection entities in the database.
+     * Deletes all Taker entities in the database.
      */
     fun clear() {
         // Launch coroutines in the viewModelScope so that the coroutines are automatically
