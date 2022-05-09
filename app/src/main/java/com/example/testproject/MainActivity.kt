@@ -2,6 +2,12 @@ package com.example.testproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.example.testproject.databinding.ActivityMainBinding
+
 import androidx.fragment.app.Fragment
 import com.example.testproject.fragments.AccountFragment
 import com.example.testproject.fragments.HomeFragment
@@ -10,6 +16,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 
+
+/**
+ * Main interface of the application
+ */
 class MainActivity : AppCompatActivity() {
 
 
@@ -45,5 +55,6 @@ class MainActivity : AppCompatActivity() {
             transaction.replace(R.id.fragment_container, fragment)
             transaction.commit()
         }
+
     }
 }

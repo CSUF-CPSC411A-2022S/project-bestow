@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/takerListFragment">
+    <fragment
+        android:id="@+id/takerListFragment"
+        android:name="com.example.testproject.takerlist.TakerListFragment"
+        android:label="Manage Takers">
+        <action
+            android:id="@+id/action_takerListFragment_to_takerItemFragment"
+            app:destination="@id/takerItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/takerItemFragment"
+        android:name="com.example.testproject.takeritem.TakerItemFragment"
+        android:label="Taker Information">
+        <argument
+            android:name="takerId"
+            app:argType="long" />
+    </fragment>
+</navigation>
