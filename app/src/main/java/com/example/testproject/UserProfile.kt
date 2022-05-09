@@ -5,6 +5,7 @@ class UserProfile (var item: String, var pictureID: String, var description: Str
         private val userItem = item;
         private val userPictureID = pictureID;
         private val userDescription = description;
+
         private val userScores = scores;
 
 
