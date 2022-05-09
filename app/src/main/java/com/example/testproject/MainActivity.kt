@@ -2,33 +2,59 @@ package com.example.testproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.testproject.databinding.ActivityMainBinding
 
+import androidx.fragment.app.Fragment
+import com.example.testproject.fragments.AccountFragment
+import com.example.testproject.fragments.HomeFragment
+import com.example.testproject.fragments.PostFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
+
+
+
 /**
  * Main interface of the application
  */
 class MainActivity : AppCompatActivity() {
+
+
+
+    private val homeFragment = HomeFragment()
+    private val accountFragment = AccountFragment()
+    private val postFragment = PostFragment()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        replaceFragment(homeFragment)
 
-        // Create data binding and assign layout for the activity.
-        val binding: ActivityMainBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        // Setup navigation controller and action bar.
-        val navController = this.findNavController(R.id.nav_host)
-        NavigationUI.setupActionBarWithNavController(this, navController)
+
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId) {
+                R.id.home-> replaceFragment(homeFragment)
+                R.id.post-> replaceFragment(postFragment)
+                R.id.account-> replaceFragment(accountFragment)
+            }
+            true
+        }
+
     }
 
-    /**
-     * Override the default implementation of the Up button so that it uses our
-     * navController.
-     */
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = this.findNavController(R.id.nav_host)
-        return navController.navigateUp()
+    private fun replaceFragment(fragment: Fragment) {
+        if(fragment != null) {
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container, fragment)
+            transaction.commit()
+        }
+
     }
 }
