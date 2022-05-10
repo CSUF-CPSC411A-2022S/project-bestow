@@ -1,6 +1,6 @@
 package com.example.testproject
 
-class GivingScore(var score: Int)
+class GivingScore()
 {
 
     fun current()

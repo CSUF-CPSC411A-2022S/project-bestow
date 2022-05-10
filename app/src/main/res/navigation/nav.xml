@@ -3,25 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/mainActivity">
-
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.testproject.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+    app:startDestination="@id/profTemp">
     <fragment
-        android:id="@+id/screen_givingscore"
-        android:name="com.example.testproject.screen_givingscore"
-        android:label="fragment_screen_givingscore"
-        tools:layout="@layout/fragment_screen_givingscore" />
-    <fragment
-        android:id="@+id/profile"
-        android:name="com.example.testproject.Profile"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        android:id="@+id/giverScore"
+        android:name="com.example.testproject.GiverScore"
+        android:label="giver_score_fragment"
+        tools:layout="@layout/giver_score_fragment" >
         <action
-            android:id="@+id/action_profile_to_screen_givingscore"
-            app:destination="@id/screen_givingscore" />
+            android:id="@+id/action_giverScore_to_profTemp"
+            app:destination="@id/profTemp" />
+    </fragment>
+    <fragment
+        android:id="@+id/profTemp"
+        android:name="com.example.testproject.ProfTemp"
+        android:label="prof_temp_fragment"
+        tools:layout="@layout/prof_temp_fragment" >
+        <action
+            android:id="@+id/action_profTemp_to_giverScore"
+            app:destination="@id/giverScore" />
     </fragment>
 </navigation>
