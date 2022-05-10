@@ -25,4 +25,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/givelogo" />
 
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="480dp"
+        android:text="@string/give_take"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:ignore="AllCaps" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
