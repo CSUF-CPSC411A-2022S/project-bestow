@@ -19,7 +19,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:itemBackground="@color/material_dynamic_primary0"
-        app:itemIconTint="#8F3838"
+        app:itemIconTint="#FFFF"
         app:itemTextColor="#A58585"
         app:menu="@menu/navigation_bar" />
 
