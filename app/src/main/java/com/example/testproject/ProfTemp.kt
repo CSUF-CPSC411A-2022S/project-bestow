@@ -9,7 +9,10 @@ import android.view.ViewGroup
 //import android.R
 import android.widget.Button
 import androidx.databinding.DataBindingUtil.setContentView
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.testproject.databinding.ActivityMainBinding
 
 class ProfTemp : Fragment() {
@@ -24,8 +27,13 @@ class ProfTemp : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val nav = findNavController()
         val v1 = inflater.inflate(R.layout.prof_temp_fragment, container, false)
         val button = v1.findViewById(R.id.button2) as Button
+
+        button.setOnClickListener { view: View ->
+        nav.navigate(R.id.giverScore)
+        }
      //   v1.textView2.setOnClickListener { Navigation.findNavController(v1).navigate(R.id.action_profTemp_to_giverScore) }
         return v1
     }
