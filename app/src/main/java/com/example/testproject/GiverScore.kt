@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -29,14 +30,15 @@ class GiverScore : Fragment() {
         val v2 = inflater.inflate(R.layout.giver_score_fragment, container, false)
         val button = v2.findViewById(R.id.button3) as Button
         val RateButton = v2.findViewById(R.id.button4) as Button
-        val GiverScore: TextView = v2.findViewById(R.id.textView12)
-        GiverScore.setText("Hey")
+        var GiverScore: TextView = v2.findViewById(R.id.textView5)
+        var UserRating: EditText = v2.findViewById(R.id.textView10)
 
         button.setOnClickListener { view: View ->
             nav.navigate(R.id.profTemp)
         }
         RateButton.setOnClickListener { view: View ->
-            GiverScore.setText("Hey")
+            var string: String =  UserRating.getText().toString()
+            GiverScore.setText(string)
         }
         return v2
     }
