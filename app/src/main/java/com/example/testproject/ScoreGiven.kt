@@ -1,7 +1,13 @@
 package com.example.testproject
 
-class GivingScore(var currScore: Int, var rating: Int, var numofItems: Int, var new_item: Int)
+class GivingScore()
 {
+    //The intended code for the giving score. I will explain how each variable suppose to mean by talking about the functions.
+    var new_item: Int = 0
+    var numofItems = 0
+    var rating = 0
+    var currScore = 0
+    lateinit var checkscore: String
 
     fun check()
     {
@@ -34,5 +40,18 @@ class GivingScore(var currScore: Int, var rating: Int, var numofItems: Int, var 
           5 -> tempor + 1000
         }
         currScore += tempor
+    }
+
+    fun checkscore()
+    {
+        when(checkscore) {
+            "0" -> rating = 0
+            "1" -> rating = 1
+            "2" -> rating = 2
+            "3" -> rating = 3
+            "4" -> rating = 4
+            "5" -> rating = 5
+            else -> checkscore = "Invalid"
+        }
     }
 }

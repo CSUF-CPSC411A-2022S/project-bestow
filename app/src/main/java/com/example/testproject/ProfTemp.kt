@@ -14,7 +14,8 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.testproject.databinding.ActivityMainBinding
-
+//This is suppose to be a profile fragment though it doesn't have much use for what I am trying to build nor does it have any use.
+//You can navigate between the two fragments.
 class ProfTemp : Fragment() {
 
     companion object {
@@ -34,14 +35,12 @@ class ProfTemp : Fragment() {
         button.setOnClickListener { view: View ->
         nav.navigate(R.id.giverScore)
         }
-     //   v1.textView2.setOnClickListener { Navigation.findNavController(v1).navigate(R.id.action_profTemp_to_giverScore) }
         return v1
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(ProfTempViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }
