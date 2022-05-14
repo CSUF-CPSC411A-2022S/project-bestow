@@ -13,7 +13,7 @@ import android.widget.Button
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.prof_temp_fragment)
+        setContentView(R.layout.giver_score_fragment)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

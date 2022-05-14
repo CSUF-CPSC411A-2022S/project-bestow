@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/profTemp">
+    app:startDestination="@id/giverScore">
     <fragment
         android:id="@+id/giverScore"
         android:name="com.example.testproject.GiverScore"
